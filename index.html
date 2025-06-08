@@ -25,12 +25,29 @@
     <!-- Google Tag Manager (noscript) -->
     <!-- Google Tag Manager (noscript) -->
     <span
-      id="clickable"
+      id="click_count"
       style="color: blue; text-decoration: underline; cursor: pointer"
     >
       Click me (<span id="num">0</span>)
     </span>
 
+    <h1>Hello, World!</h1>
+    <p>This is a basic HTML page with Google Tag Manager integrated.</p>
+    <form id="myForm" class="myDataForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+      <br /><br />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required />
+      <br /><br />
+
+      <button type="submit">Submit</button>
+    </form>
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-KRF3ZCHJ"
@@ -40,16 +57,20 @@
       ></iframe
     ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <!-- End Google Tag Manager (noscript) -->
 
-    <h1>Hello, World!</h1>
-    <p>This is a basic HTML page with Google Tag Manager integrated.</p>
     <script>
       let num = 0;
-      document.getElementById("clickable").onclick = function () {
+      document.getElementById("click_count").onclick = function () {
         num++;
         alert("You clicked! Value is now " + num);
         document.getElementById("num").innerText = num;
+      };
+      document.getElementById("myForm").onsubmit = function (e) {
+        e.preventDefault(); // Prevents actual submission
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        alert(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}`);
       };
     </script>
   </body>
