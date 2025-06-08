@@ -48,6 +48,7 @@
 
       <button type="submit">Submit</button>
     </form>
+    <div id="message" class="thanksmessage"></div>
     <noscript
       ><iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-KRF3ZCHJ"
@@ -70,7 +71,8 @@
         const name = document.getElementById("name").value;
         const email = document.getElementById("email").value;
         const phone = document.getElementById("phone").value;
-        alert(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}`);
+        document.getElementById("message").innerHTML =
+          '<p style="color:green;">Thank you for submitting the form!</p>';
       };
     </script>
   </body>
